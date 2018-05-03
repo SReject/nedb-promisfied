@@ -1,5 +1,5 @@
 # NeDB-Promisfied
-Promisfies most calls to nedb
+Promisfies most calls to [NeDB](https://github.com/louischatriot/nedb)
 
 ## Deviations  
 Due to promisfication, some of the routines have changed documented below

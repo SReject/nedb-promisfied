@@ -13,6 +13,10 @@
     ],
     "author": "SReject",
     "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/SReject/nedb-promisfied.git"
+    },
     "scripts": {
         "lint": "./node_modules/.bin/eslint ./lib",
         "lint-local": "./node_modules/.bin/eslint ./lib --output-file=eslint.log.htm --format=html --fix",
