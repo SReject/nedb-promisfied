@@ -19,7 +19,8 @@ function cursorExec() {
     });
 }
 
-/**@desc Replaces a NeDB's cursor instances .exec() function with cursorExec()
+/**@desc Replaces a NeDB's cursor instance's .exec() function with cursorExec()
+ * @private
  * @param {Cursor} cursor
  * @returns {Cursor}
 */
@@ -27,8 +28,6 @@ function promisfyCursor(cursor) {
     cursor.exec = cursorExec;
     return cursor;
 }
-
-
 
 class NeDBPromisified extends nedb {
 

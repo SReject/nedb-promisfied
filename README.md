@@ -8,10 +8,11 @@ Due to promisfication, some of the routines have changed documented below
 When loading from file, autoload is not supported. Instead, use `.load()` after creation which returns a promise that is resolved after the database is loaded
 
 ### `.find()`, `.findOne()`, `.count()`  
-Now return a `Cursor` instance against which you call NeDB's native `.skip`, `.limit`, and `.sort` method on. Once you are ready to retrieve documents call `.exec()` on the cursor instance. This will return a promise that is resolved once NeDB has returned the documents
+Return a `Cursor` instance against which you can call NeDB's native `.skip`, `.limit`, and `.sort` method on.  
+To retrieve documents you **MUST** call `.exec()` on the cursor instance; this will return a promise that is resolved once NeDB has returned the documents.
 
 ### `.insert()`, `.update()`, `.remove()`, `.ensureIndex`, `.removeIndex`
-Both now return a promise which resolves after completion of the task
+Now return a promise which resolves after completion of the task
 
 ## Example  
 ```js
@@ -21,14 +22,14 @@ let db = new NeDB('example.db');
 
 db
     .load() // load from file
-    .then((db) => {
+    .then(db => { // same instance as above
         return db.insert({hello: 'world'}); // insert doc
 
-    }).then(doc => {
-        console.log(doc);
+    }).then(insDoc => {
+        console.log(insDoc);
         return db.find({hello: 'world'}).exec(); // find doc
 
-    }).then(doc => {
-        console.log(doc);
+    }).then(foundDoc => {
+        console.log(foundDoc);
     });
 ```
