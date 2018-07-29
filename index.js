@@ -176,7 +176,7 @@ class NeDBPromisified extends nedb {
      */
     removeIndex(fieldname) {
         return new Promise((res, rej) => {
-            super.ensureIndex(fieldname, (err) => {
+            super.removeIndex(fieldname, (err) => {
                 if (err) {
                     return rej(err);
                 }
